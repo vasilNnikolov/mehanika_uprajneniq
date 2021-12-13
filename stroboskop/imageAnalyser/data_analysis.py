@@ -1,5 +1,6 @@
 from os import EX_DATAERR, name
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv("curved_line.csv", names = ["x, px", "y, px"])
 
@@ -18,25 +19,23 @@ dt = 1/100 # frequency was 1000 hz
 xs, ys = df["x, cm"].tolist(), df["y, cm"].tolist()
 positions = [(x, y) for x, y in zip(xs, ys)] 
 print(df.head())
-# vx_col = pd.Series([(xs[i + 1] - xs[i - 1])/(2*dt) for i in range(1, df.count()[0] - 1)], index=list(range(1, df.count()[0] - 1)))
-# vx_col.at[0] = vx_col.at[1]
-# vx_col.at[vx_col.size] = vx_col.at[vx_col.size - 1]
-# df["V_x, cm/s"] = vx_col 
-
-# vy_col = pd.Series([(ys[i + 1] - ys[i - 1])/(2*dt) for i in range(1, df.count()[0] - 1)], index=list(range(1, df.count()[0] - 1)))
-# vy_col.at[0] = vy_col.at[1]
-# vy_col.at[vy_col.size] = vy_col.at[vy_col.size - 1]
-# df["V_y, cm/s"] = vy_col 
 
 # add x and y velocities simultaneously
-velocities = pd.Series([((positions[i + 1][0] - positions[i - 1][0]), 
-                        (positions[i + 1][1] - positions[i - 1][1])) for i in range(1, df.count()[0] - 1)], 
-                        index=list(range(1, df.count()[0] - 1)))
+velocities = [(np.array(positions[i + 1]) - np.array(positions[i - 1]))/(2*dt) for i in range(1, df.count()[0] - 1)]
 
-velocities = pd.Series([(v[0]/(2*dt), v[1]/(2*dt)) for v in velocities])
+velocities = pd.Series(velocities, index=list(range(1, df.count()[0] - 1)))
+velocities.at[0] = velocities.at[1]
+velocities.at[df.count()[0] - 1] = velocities.at[df.count()[0] - 2]
+
 df["v, cm/s"] = velocities
 
+accelerations = [(np.array(velocities.at[i + 1]) - np.array(velocities.at[i - 1]))/(2*dt) for i in range(1, df.count()[0] - 1)]
 
-print(df.head())
-print(df.tail())
+accelerations = pd.Series(accelerations, index=list(range(1, df.count()[0] - 1)))
+accelerations.at[0] = accelerations.at[1]
+accelerations.at[df.count()[0] - 1] = accelerations.at[df.count()[0] - 2]
+
+df["a, cm/s^2"] = accelerations
+
+
 
