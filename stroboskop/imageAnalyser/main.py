@@ -4,10 +4,10 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import sys
 
-def resize_image(image: Image.Image):
+def resize_image(image: Image.Image, new_max_sidelength):
     size = image.size 
     bigger_side_length = max(size)
-    new_size = (800*size[0]/bigger_side_length, 800*size[1]/bigger_side_length)
+    new_size = (new_max_sidelength*size[0]/bigger_side_length, new_max_sidelength*size[1]/bigger_side_length)
     new_size = tuple(map(int, new_size))
     image = image.resize(new_size)
     return image, new_size
@@ -21,7 +21,7 @@ def main():
 
     image_filename = sys.argv[1]    
     image_PIL = Image.open(image_filename) 
-    image_PIL, new_size = resize_image(image_PIL)
+    image_PIL, new_size = resize_image(image_PIL, 950)
 
     output_filename = "output_file.csv"
     if len(sys.argv) == 3:
