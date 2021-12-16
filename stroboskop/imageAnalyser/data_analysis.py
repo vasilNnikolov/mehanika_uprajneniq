@@ -5,6 +5,8 @@ import cv2
 import pandas as pd
 import matplotlib.pyplot as plt
 from pandas.core.frame import DataFrame
+from sklearn import linear_model
+from sklearn.linear_model import LinearRegression
 
 from main import resize_image
 
@@ -100,7 +102,16 @@ def make_velocity_acceleration_plots():
         acceleration_magnitudes = [np.sqrt(a.dot(a)) for a in accelerations]
         t = df["time, s"]
 
+        lin_regressor = LinearRegression()
+        reshaped_t = np.array(t).reshape(-1, 1)
+        reshaped_vs = np.array(velocity_magnitudes).reshape(-1, 1)
+        print(reshaped_vs.shape, reshaped_t.shape)
+        print(reshaped_t)
+        lin_regressor.fit(reshaped_t, reshaped_vs)
+        y_predicted = lin_regressor.predict(t)
         axis.plot(t, velocity_magnitudes)
+        axis.plot(t, y_predicted, color="red")
+
 
     plt.show()
 
