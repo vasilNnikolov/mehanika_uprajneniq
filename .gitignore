@@ -6,4 +6,8 @@
 *.log
 *.bib
 *.out
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
 __pycahce__/
