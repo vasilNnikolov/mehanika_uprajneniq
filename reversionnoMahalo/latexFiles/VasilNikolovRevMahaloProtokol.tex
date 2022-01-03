@@ -1,0 +1,77 @@
+\documentclass[aps, prb, twocolumn, a4paper, floatfix, reprint]{revtex4-2}
+\usepackage[%
+    margin=10mm,% ако не си принтира 10мм не изглежда грозно, а може да събереш повече текст
+    % showframe=true,%
+    ]{geometry}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=bulgarian, english]{babel}
+\usepackage{float}
+\AtBeginDocument{\selectlanguage{bulgarian}}
+\newcommand{\degree}{^{\circ}}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{graphicx}
+\graphicspath{{.}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\let\phi\varphi
+\usepackage{booktabs} % от тук се използва само \midrule може и без него 
+%\usepackage{adjustbox} % това може да се използва, за да „смаляваш“ широки таблици
+%\usepackage{tabularx} % дефинира колона X в среда tabularx която добавя празно място така че цялата таблица да запълни определена ширина
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage[unicode=true,pdfusetitle]{hyperref}
+
+
+\makeatletter
+\renewcommand{\Dated@name}{}%
+\makeatother
+
+
+
+\begin{document}
+\title{Реверсионно махало}
+\author{Васил Николов}
+\noaffiliation
+\date{03.01.2022}
+\maketitle
+
+\section{Цел на упражнението}
+Да се изследва поведението на реверсионно махало и да се измери земното ускорение $g$.
+
+\section{Експериментална установка}
+Реверсионното махало е метална пръчка с тежести, които могат да се плъзгат по пръчката, и две възможни точки на окачване в двата края на пръчката. Едната тежест се фиксира в единия край, а другата се плъзга по пръта, и се измерват периодите на махалото спрямо двете точки на окачване като функция на разстоянието между тежестите. Теоретично може да се изведе че ако за дадено разстояние между тежестите двата периода $T$ и $T'$ съвпадат, то
+\begin{gather*} \label{eq:1}
+    T = 2\pi \sqrt{\frac{l}{g}} \\
+    g = \frac{4\pi^2 T^2}{l} \tag{1}
+\end{gather*}
+
+\section{Теоретична обосновка}
+Теоретично може да се изведе, че ъгълът на усукване зависи по следният начин от параметрите на системата:
+\begin{equation*}
+    \phi=\frac{Tl}{JG}
+\end{equation*}
+където $T$ е приложеният въртящ момент, $l$ е дължината на пръчката, $J$ е площният инерционен момент, $G$ е модулът на срязване на алуминия. Знаейки параметрите на системата можем да определим напълно всички тези променливи освен $G$
+
+\begin{gather*}
+    T=2mgR \\
+    J=\pi/2 r^4 \\
+    \phi = \frac{4LRmg}{\pi r^4 G} \label{eq:1} \tag{1}
+\end{gather*}
+От горното уравнение се вижда, че зависимостта на ъгълът от окачената маса е линейна. На графика
+\begin{gather*}
+    y=\phi , \ \ x=m \\
+    \frac{dy}{dx} = \frac{4LRg}{\pi r^4 G} \\
+    G = \frac{4LRg}{\pi r^4 \frac{dy}{dx}} \label{eq:2} \tag{2} 
+\end{gather*}
+
+\section{Експериментални данни и резултати}
+
+
+От графиката на ъгълът на усукване като функция на окачената маса можем да измерим $\frac{dy}{dx} = 1.53 \ kg^{-1}$, и по \eqref{eq:2} 
+\begin{equation}
+    G = 28.4 \ GPa \pm 5\%
+\end{equation}
+Тази стойност е близка до табличната стойност за алуминия. 
+
+\end{document}
