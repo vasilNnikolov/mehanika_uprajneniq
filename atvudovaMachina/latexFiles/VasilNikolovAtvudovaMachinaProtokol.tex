@@ -28,14 +28,12 @@
 \makeatother
 
 
-
 \begin{document}
-\title{Атвудова машина}
+\title{Реверсионно махало}
 \author{Васил Николов}
 \noaffiliation
 \date{03.01.2022}
 \maketitle
-
 \section{Цел на упражнението}
 Да се измери земното ускорение $g$ и да се изследва равноускорителното движение. 
 
@@ -76,8 +74,19 @@
 
 \section{Експериментални данни и резултати}
 \subsection{Проверка на закон за пътя при равноускорително движение}
+На Фигура 1 е дадена графика на $y=2L$ като функция на $x=t^2$. Вижда се, че точките добре се описват от линейна зависимост $y=ax$. От фитирането на правата $a=0.635 ms^{-2}$. Ако пресметнем по ускорението по уравнение \eqref{eq:1} изкарваме $a=0.47 ms^{-2}$. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth, keepaspectratio=true]{Figure_1.png}
+\end{figure}
 
-
+\subsection{Измерване на земното ускорение}
+В експеримента ще използваме $h=0.2m, \  L=0.2m$. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth, keepaspectratio=true]{Figure_2.png}
+\end{figure}
+На Фигура 2 е представена графика на $y=g$ като функция на $x=1/m$. Ако екстраполираме тази зависимост до $x=0 \Rightarrow m=\infty$ получаваме стойност $g=9.51 ms^{-2}$. Тази стойност е най-точна защото при $m \rightarrow \infty$ инерчният момент на макарата не оказва влияние. 
 
 
 \end{document}
