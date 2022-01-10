@@ -1,0 +1,59 @@
+\documentclass[aps, prb, twocolumn, a4paper, floatfix, reprint]{revtex4-2}
+\usepackage[%
+    margin=10mm,% ако не си принтира 10мм не изглежда грозно, а може да събереш повече текст
+    % showframe=true,%
+    ]{geometry}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=bulgarian, english]{babel}
+\usepackage{float}
+\AtBeginDocument{\selectlanguage{bulgarian}}
+\newcommand{\degree}{^{\circ}}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{graphicx}
+\graphicspath{{.}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\let\phi\varphi
+\usepackage{booktabs} % от тук се използва само \midrule може и без него 
+%\usepackage{adjustbox} % това може да се използва, за да „смаляваш“ широки таблици
+%\usepackage{tabularx} % дефинира колона X в среда tabularx която добавя празно място така че цялата таблица да запълни определена ширина
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage[unicode=true,pdfusetitle]{hyperref}
+
+
+\makeatletter
+\renewcommand{\Dated@name}{}%
+\makeatother
+
+
+
+\begin{document}
+\title{Атвудова машина}
+\author{Васил Николов}
+\noaffiliation
+\date{03.01.2022}
+\maketitle
+
+\section{Цел на упражнението}
+Да се измери земното ускорение $g$ и да се изследва равноускорителното движение. 
+
+\section{Експериментална установка}
+Уредът представлява две еднакви маси, $M$, окачени от двете страни на макара. От едната страна има две фотоклетки, през които едното тяло може да преминава, и уредът отчита времето между засичането на тялото при горната и долната фотоклетка. На тялото от страната на фотоклетките могат да се поставят пръстени, които нарушават баланса и правят движението равноускорителното. Ако обаче пръстените са широки те се захващат при горната фотоклетка, и движението става равномерно. В теоретичната обосновка инерчният момент на макарата ще се пренебрегне, но в Задача 3 неговото влияние ще се отчете. 
+
+\section{Теоретична обосновка}
+нека разстоянието между фотоклетките е $L$, и уредът отчита време $t$. 
+\subsection{Равноускорително движение}
+За целта ще закачаме тесен пръстен на тялото и ще го пускаме непосредствено над горната фотоклетка. Тогава уредът ще започне да засича точно когато тялото е пуснато, и ще спре когато то измине вертикално разстояние $L$. Нека масата на тънкият пръстен е $m$. Тогава
+\begin{gather*}
+    T - Mg = Ma \\
+    (M + m)g - T = (M+m)a\\
+    \Rightarrow mg = (2M + m)a \\
+    a = \frac{m}{2M + m}g \label{eq:1} \tag{1}
+\end{gather*}
+
+\section{Експериментални данни и резултати}
+
+
+\end{document}
