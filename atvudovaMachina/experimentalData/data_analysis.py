@@ -39,8 +39,23 @@ def zadacha_2():
     plt.ylabel("$g, ms^{-2}$", fontsize=15)
     plt.show()
 
+def zadacha_3():
+    df = pd.read_csv("amzad3.csv")
+    print(df)
+    M = 118.87/2000
+    df["m, kg"] = df["m, g"]/1000
+    xs = df["m, kg"]/df["L, m"]
+    ys = 2*(2*M + df["m, kg"])/(df["t, s"])**2
+    plt.scatter(xs, ys)
+
+    a, _ = curve_fit(lambda x, a: a*x, xs, ys)
+    print(a[0])
+    plt.plot(xs, a[0]*xs, "r")
+    plt.xlabel("$\\frac{m}{L}, kg.m^{-1}$", fontsize=15)
+    plt.ylabel("$\\frac{2(2M + M)}{t^2}, kg.s^{-2}$", fontsize=15)
+    plt.show()
 
 
 
 if __name__ == "__main__":
-    zadacha_2()
+    zadacha_3()
