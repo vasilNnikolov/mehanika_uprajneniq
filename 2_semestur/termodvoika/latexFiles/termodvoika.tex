@@ -1,4 +1,9 @@
-\documentclass[aps, prb, twocolumn, a4paper, floatfix, reprint]{revtex4-2}
+%%\documentclass[aps, prb, twocolumn, a4paper]{revtex4-2}
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-2}
 \usepackage{balance}
 \usepackage[%
     margin=10mm,% ако не си принтира 10мм не изглежда грозно, а може да събереш повече текст
@@ -22,12 +27,11 @@
 \usepackage[unicode=true,pdfusetitle]{hyperref}
 
 \usepackage[compact]{titlesec}
-\titlespacing{\section}{0pt}{2ex}{1ex}
-\titlespacing{\subsection}{0pt}{1ex}{0ex}
-\titlespacing{\subsubsection}{0pt}{0.5ex}{0ex}
 
 
 \begin{document}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}    
 
 \title{Термодвойка}
 \author{Васил Николов}
