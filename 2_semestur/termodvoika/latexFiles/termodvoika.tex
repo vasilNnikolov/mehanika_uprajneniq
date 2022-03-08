@@ -1,4 +1,5 @@
 \documentclass[aps, prb, twocolumn, a4paper, floatfix, reprint]{revtex4-2}
+\usepackage{balance}
 \usepackage[%
     margin=10mm,% ако не си принтира 10мм не изглежда грозно, а може да събереш повече текст
     % showframe=true,%
@@ -16,25 +17,23 @@
 \newcommand{\abs}[1]{\lvert#1\rvert}
 \let\phi\varphi
 \usepackage{booktabs} % от тук се използва само \midrule може и без него 
-%\usepackage{adjustbox} % това може да се използва, за да „смаляваш“ широки таблици
-%\usepackage{tabularx} % дефинира колона X в среда tabularx която добавя празно място така че цялата таблица да запълни определена ширина
 \usepackage{dcolumn}
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 \usepackage[unicode=true,pdfusetitle]{hyperref}
 
-
-\makeatletter
-\renewcommand{\Dated@name}{}%
-\makeatother
-
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{2ex}{1ex}
+\titlespacing{\subsection}{0pt}{1ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{0.5ex}{0ex}
 
 
 \begin{document}
+
 \title{Термодвойка}
 \author{Васил Николов}
-\noaffiliation
 \date{08.03.2022}
 \maketitle
+%%\balance
 
 \section{Цел на упражнението}
 Да се наблюдава втвърдяването на смес на Вуд, и да се изследва и калибрира термодвойка, потопена в сместа. 
@@ -81,8 +80,8 @@
     a = -1.296.10^{-3} \frac{mV}{K^2}, \ b = 1.147 \frac{mV}{K}, \ c = -29.89 mV
 \end{equation*}
 Съобразявайки в коя част на парабобата е интервалът на измервания можем да пресметнем офратната функция 
-\begin{equation*}
-    T = T(E) = \frac{-b+\sqrt{b^2 - 4a(c-E)}}{2a}
+\begin{equation*} \label{eq:2}
+    T = T(E) = \frac{-b+\sqrt{b^2 - 4a(c-E)}}{2a} \tag{2}
 \end{equation*}
 
 Грешката при определяне на температурата по този начин е 
@@ -99,6 +98,11 @@
     \caption{Температура на сплавта като функция на времето}
     \includegraphics[width=0.95\columnwidth, keepaspectratio=true]{cool3.png}
 \end{figure}
-
-Платото на температурата се получава при $T_{ph} = 67.9^{\circ}C$. Това е температурата на фазовия преход за тази смес на Вуд. 
+Платото на температурата се получава при $T_{ph} = 67.9^{\circ}C$. Това е температурата на фазовия преход за тази смес на Вуд. Средата на платото е около $t_{mid}=1600s$. В този момент напрежението е $E_{mid} = 42.4 mV$. Това отговаря на температура $T_{th} = 68.3^{\circ} C$, пресметнато по \eqref{eq:2}. Ако термодвойката е калибрирана правилно то 
+\begin{gather*}
+    \vert T_{th} - T_{mid} \vert < \delta T_{term} + \delta T \\
+    \vert T_{th} - T_{mid} \vert = 0.4^{\circ}C \\
+    \delta T_{term} + \delta T = 0.8^{\circ}C 
+\end{gather*}
+Следователно калибрацията е точна. 
 \end{document}
