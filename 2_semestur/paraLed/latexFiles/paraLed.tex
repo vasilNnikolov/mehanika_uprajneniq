@@ -1,0 +1,63 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-2}
+\usepackage{balance}
+\usepackage[%
+    margin=10mm,% ако не си принтира 10мм не изглежда грозно, а може да събереш повече текст
+    % showframe=true,%
+    ]{geometry}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=bulgarian, english]{babel}
+\usepackage{float}
+\AtBeginDocument{\selectlanguage{bulgarian}}
+\newcommand{\degree}{^{\circ}}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{graphicx}
+\graphicspath{{.}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\let\phi\varphi
+\usepackage{booktabs} % от тук се използва само \midrule може и без него 
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage[unicode=true,pdfusetitle]{hyperref}
+
+\usepackage[compact]{titlesec}
+
+
+\begin{document}
+% \setlength{\abovedisplayskip}{3pt}
+% \setlength{\belowdisplayskip}{3pt}    
+
+\title{Експериментално установяване на специфичната топлина на топене на леда и специфичната топлина на изпарение на водна пара}
+\author{Васил Николов}
+\date{08.03.2022}
+\maketitle
+%%\balance
+
+\section{Цел на упражнението}
+Да се измерят специфичната топлина на топене на воден лед $\lambda$ и специфичната топлина на изпарение на водната пара $s$. 
+
+\section{Теоретична обосновка}
+
+При фазоф преход на водата от твърдо към течно състояние температурата е константна $(T = T_{melt} = 0^{\circ}C)$, но за да разтопим лед с маса $m$ е нужно да се вкара допълнително енергия в системата $\Delta Q = \lambda m$. Тук $\lambda$ е константа - специфичната топлина на топене. Аналогично при изпарение на вода с маса $m$ можем да дефинираме $s = \frac{\Delta Q}{m} = const$. 
+
+\section{Експериментална установка и работни формули}
+
+\subsection{Специфична топлина на топене на леда}
+В добре термоизолиран дюаров съд поставяме вода с начална температура $T_0 = 56.7 \pm 0.1 ^{\circ}C $ и маса $m_{H20} = 150.0 \pm 0.1 g$. Поставяме и няколко ледени кубчета и чакаме, докато се разтопят. Чрез потопеният в съда термометър измерваме температурата $T_1 = 26.1 \pm 0.1 ^{\circ}C $. След това премерваме масата на съда. Тъй като знаем масата му, когато е празен, и масата на водата в началото можем да определим точно масата на сложените ледени кубчета $m_{ice} = 49 \pm 0.1 g$. Установено е, че топлинният капацитет на дюаровият съд е равен на този на $m_d = 20g$ вода. Нека топлинният капацитет на водата е $C$. Тогава
+\begin{gather*}
+    c(m_{h2o} + m_d)(T_0 - T_1) + \lambda m_{ice} + c m_{ice} (T_1 - T_{melt}) = 0 \\
+    \lambda = \frac{c(m_{h2o} + m_d)(T_0 - T_1) + m_{ice}(T_{melt} - T_1)}{m_{ice}}
+\end{gather*}
+
+\section{Експериментални данни и резултати}
+
+\subsection{Градуиране на термодвойката}
+
+\subsection{Фазов преход на сплав на Вуд}
+
+\end{document}
