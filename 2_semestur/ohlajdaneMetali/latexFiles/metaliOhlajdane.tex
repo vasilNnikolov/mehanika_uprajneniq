@@ -18,6 +18,8 @@
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{units}
+\usepackage[]{siunitx}
+\usepackage[]{lipsum}
 
 \graphicspath{{.}}
 \newcommand{\abs}[1]{\lvert#1\rvert}
@@ -87,11 +89,19 @@
 
 На фигура \ref{fig:1} са представени гореописаните манипулации на експерименталните данни. 
 
-\begin{figure*}[ht]
+\begin{figure*}
     \centering
     \includegraphics[width=\textwidth, keepaspectratio=true]{fig2.png} 
     \caption{Експериментални данни и фитирана аналитична крива}
     \label{fig:1}
 \end{figure*}
+
+Имайки параметрите на кривата можем да намерим производната й по формулата 
+\begin{equation*} \label{eq:2}
+    \frac{dT}{dt} = -A\lambda e^{-\lambda t} + \sum_{i=1}^{5}{ia_i t^{i-1}} \tag{2}
+\end{equation*}
+
+Избираме стойности на температурата $T_1 = 450K, T_2 = 400K, T_3 = 370K$, така че те да обхващат интервалът, в който са правени измерванията. Числено намираме моментите, в които температурите на образците са равни на коя да е от тези стойности, и заместваме в уравнения \eqref{eq:1} и \eqref{eq:2}. Така получаваме стойности за специфичният топлинен капацитет на желязото съответно $c_{1\text{fe}}, c_{2\text{fe}}, c_{3\text{fe}}$, отговарящи на горните температури. Ако предположим че грешката в измерването на производната е $\Delta \frac{dT}{dt} = 5\%$, то тогава грешката на измерванията излиза около $\frac{\Delta c_{\text{fe}}}{c_{\text{fe}}} \approx 5\%$. Тогава $c_{1\text{fe}} = 407 \ \si{J/(kg.K)}, c_{2\text{fe}} = 400 \ \si{J/(kg.K)}, c_{3\text{fe}} = 396 \ \si{J/(kg.K)}$.
+
 
 \end{document}
