@@ -20,6 +20,10 @@ coeffs = {key: rho*g*R*ufloat(average[key], errors[key])/2 for key in data.colum
 
 B = 72.75/ufloat(average["h2o dest"], errors["h2o dest"])
 
-print(B, 100*B.std_dev/B.nominal_value)
+print("B: ", B, 100*B.std_dev/B.nominal_value)
+print("absolute")
 for col in data.columns:
     print(f"{col}: sf coeff is {coeffs[col].nominal_value} pm {coeffs[col].std_dev/coeffs[col].nominal_value*100:.2f}")
+
+
+
