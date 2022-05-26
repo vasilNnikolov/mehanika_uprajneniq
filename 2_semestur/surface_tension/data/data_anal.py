@@ -18,7 +18,7 @@ average = {key: data[key].mean()/1000 for key in data.columns}
 errors = {key: (1/1000**2 + (data[key].std()/1000)**2/col_lengths[key])**0.5  for key in data.columns}
 coeffs = {key: rho*g*R*ufloat(average[key], errors[key])/2 for key in data.columns}
 
-B = 72.75/ufloat(average["h2o dest"], errors["h2o dest"])
+B = 72.75/(ufloat(average["h2o dest"], errors["h2o dest"])*1000)
 
 print("B: ", B, 100*B.std_dev/B.nominal_value)
 print("absolute")
