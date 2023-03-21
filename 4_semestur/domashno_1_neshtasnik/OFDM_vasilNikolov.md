@@ -1,5 +1,5 @@
 # OFDM - Orthogonal frequency division multiplexing
-## Васил Николов
+## Васил Николов - 6PH0100005
 
 ## 1. Описание
 
